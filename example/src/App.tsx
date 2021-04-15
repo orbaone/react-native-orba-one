@@ -1,20 +1,72 @@
-import * as React from 'react';
+import React, { Component } from 'react';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { OrbaOne, OrbaOneFlowStep } from 'react-native-orba-one';
 
-import { StyleSheet, View, Text } from 'react-native';
-import OrbaOne from 'react-native-orba-one';
+interface AppState {
+  result: string;
+}
 
-export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+export default class App extends Component<{}, AppState> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      result: '',
+    };
+  }
 
-  React.useEffect(() => {
-    OrbaOne.multiply(3, 7).then(setResult);
-  }, []);
+  componentDidMount = async () => {
+    try {
+      const init = await OrbaOne.init('ace3ae4256f94374ad0f41b9418bf092', 'GUEST', [
+        OrbaOneFlowStep.intro,
+        OrbaOneFlowStep.identification,
+        OrbaOneFlowStep.face,
+      ]);
+      if (init.success) {
+        this.setState({ result: init.message });
+      }
+    } catch (error) {
+      this.setState({ result: 'Error: ' + error.message });
+    }
 
-  return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
-  );
+    OrbaOne.onCompleteVerification((event: any) => {
+      this.setState({ result: event.authKey });
+    });
+
+    OrbaOne.onCancelVerification((event: any) => {
+      this.setState({ result: event.message });
+    });
+  };
+
+  componentWillUnmount = () => {
+    OrbaOne.removeListeners();
+  };
+
+  startFlow = async () => {
+    try {
+      const res = await OrbaOne.startVerification();
+      if (res.success) {
+        this.setState({ result: res.message });
+      }
+    } catch (error) {
+      this.setState({ result: 'Error: ' + error.message });
+    }
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>Result: {this.state.result}</Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            this.startFlow();
+          }}
+        >
+          <Text style={styles.buttonText}>Start Verification</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -23,9 +75,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
+  button: {
+    marginTop: 20,
+    padding: 10,
+    backgroundColor: '#000000',
+  },
+  buttonText: {
+    fontSize: 14,
+    textAlign: 'center',
+    color: '#FFFFFF',
   },
 });

@@ -1,0 +1,6 @@
+framework module Pods_OrbaOne {
+  umbrella header "Pods-OrbaOne-umbrella.h"
+
+  export *
+  module * { export * }
+}

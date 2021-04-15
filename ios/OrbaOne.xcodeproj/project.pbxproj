@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		5E555C0D2413F4C50049A1A2 /* OrbaOne.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* OrbaOne.m */; };
-		F4FF95D7245B92E800C19C63 /*  OrbaOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF95D6245B92E800C19C63 /*  OrbaOne.swift */; };
-
+		C19AAB7B9849F576B9E4CF81 /* Pods_OrbaOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC48E47FD60567D2F601DD32 /* Pods_OrbaOne.framework */; };
+		F4FF95D7245B92E800C19C63 /* OrbaOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF95D6245B92E800C19C63 /* OrbaOne.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,11 +25,12 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libOrbaOne.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOrbaOne.a; sourceTree = BUILT_PRODUCTS_DIR; };
-
+		86152B7E02C3D1B9ABA6F88B /* Pods-OrbaOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrbaOne.debug.xcconfig"; path = "Target Support Files/Pods-OrbaOne/Pods-OrbaOne.debug.xcconfig"; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* OrbaOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrbaOne.m; sourceTree = "<group>"; };
+		CC48E47FD60567D2F601DD32 /* Pods_OrbaOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrbaOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E27C2E0A588ED59E6974F36E /* Pods-OrbaOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrbaOne.release.xcconfig"; path = "Target Support Files/Pods-OrbaOne/Pods-OrbaOne.release.xcconfig"; sourceTree = "<group>"; };
 		F4FF95D5245B92E700C19C63 /* OrbaOne-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OrbaOne-Bridging-Header.h"; sourceTree = "<group>"; };
 		F4FF95D6245B92E800C19C63 /* OrbaOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbaOne.swift; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C19AAB7B9849F576B9E4CF81 /* Pods_OrbaOne.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,13 +56,30 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-
 				F4FF95D6245B92E800C19C63 /* OrbaOne.swift */,
 				B3E7B5891CC2AC0600A0062D /* OrbaOne.m */,
 				F4FF95D5245B92E700C19C63 /* OrbaOne-Bridging-Header.h */,
-
 				134814211AA4EA7D00B7C361 /* Products */,
+				E2AC5E6EFA804DF33EF8ECFD /* Pods */,
+				F1BA5752871535DCCA6987F7 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		E2AC5E6EFA804DF33EF8ECFD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				86152B7E02C3D1B9ABA6F88B /* Pods-OrbaOne.debug.xcconfig */,
+				E27C2E0A588ED59E6974F36E /* Pods-OrbaOne.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F1BA5752871535DCCA6987F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC48E47FD60567D2F601DD32 /* Pods_OrbaOne.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,6 +89,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "OrbaOne" */;
 			buildPhases = (
+				98240B82F43F8036AF265432 /* [CP] Check Pods Manifest.lock */,
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
 				58B511D91A9E6C8500147676 /* CopyFiles */,
@@ -117,15 +135,37 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		98240B82F43F8036AF265432 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OrbaOne-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				F4FF95D7245B92E800C19C63 /* OrbaOne.swift in Sources */,
-				B3E7B58A1CC2AC0600A0062D /* OrbaOne.m in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +215,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -218,7 +258,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -227,6 +267,7 @@
 		};
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86152B7E02C3D1B9ABA6F88B /* Pods-OrbaOne.debug.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -238,16 +279,15 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = OrbaOne;
 				SKIP_INSTALL = YES;
-
 				SWIFT_OBJC_BRIDGING_HEADER = "OrbaOne-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-
 			};
 			name = Debug;
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E27C2E0A588ED59E6974F36E /* Pods-OrbaOne.release.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -259,10 +299,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = OrbaOne;
 				SKIP_INSTALL = YES;
-
 				SWIFT_OBJC_BRIDGING_HEADER = "OrbaOne-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-
 			};
 			name = Release;
 		};

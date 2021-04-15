@@ -21,7 +21,7 @@ android {
     compileSdkVersion safeExtGet('OrbaOne_compileSdkVersion', 29)
     buildToolsVersion safeExtGet('OrbaOne_buildToolsVersion', '29.0.2')
     defaultConfig {
-        minSdkVersion safeExtGet('OrbaOne_minSdkVersion', 16)
+        minSdkVersion safeExtGet('OrbaOne_minSdkVersion', 21)
         targetSdkVersion safeExtGet('OrbaOne_targetSdkVersion', 29)
         versionCode 1
         versionName "1.0"
@@ -53,6 +53,9 @@ repositories {
 }
 
 dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    // implementation 'com.orbaone:orba-one-sdk:1.0.0'
+     implementation project(':orba-one-capture-sdk-core')
 }
