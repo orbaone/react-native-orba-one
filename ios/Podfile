@@ -7,4 +7,5 @@ target 'OrbaOne' do
 
   # Pods for OrbaOne
   pod 'OrbaOneSdk', :path => '~/Documents/Projects/orbaonesdk/orbaone-ios'
+  # pod 'OrbaOneSdk', :git => 'https://github.com/luechenchris/orbaone-ios-sdk.git'
 end

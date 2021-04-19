@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.4.2)
-  - OrbaOneSdk (0.0.1):
+  - OrbaOneSdk (0.0.2):
     - Alamofire (~> 5.4)
 
 DEPENDENCIES:
@@ -16,8 +16,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
-  OrbaOneSdk: 3e1c218052819126a7c0a1dedcfcc6b858e282af
+  OrbaOneSdk: 60725079801235ab0d6a40ca891cf6da82ab7f10
 
-PODFILE CHECKSUM: 6b25acd9577384a49d0ac6232551503241100470
+PODFILE CHECKSUM: a364d72cfbf543fe589e40f8f26cd1912787464e
 
 COCOAPODS: 1.10.1

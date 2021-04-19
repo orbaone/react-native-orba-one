@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C19AAB7B9849F576B9E4CF81 /* Pods_OrbaOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC48E47FD60567D2F601DD32 /* Pods_OrbaOne.framework */; };
+		55668BB03BDDE4CA96275498 /* Pods_OrbaOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90548326474DC37E05A373FF /* Pods_OrbaOne.framework */; };
 		F4FF95D7245B92E800C19C63 /* OrbaOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF95D6245B92E800C19C63 /* OrbaOne.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,8 +26,8 @@
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libOrbaOne.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOrbaOne.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		86152B7E02C3D1B9ABA6F88B /* Pods-OrbaOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrbaOne.debug.xcconfig"; path = "Target Support Files/Pods-OrbaOne/Pods-OrbaOne.debug.xcconfig"; sourceTree = "<group>"; };
+		90548326474DC37E05A373FF /* Pods_OrbaOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrbaOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E7B5891CC2AC0600A0062D /* OrbaOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrbaOne.m; sourceTree = "<group>"; };
-		CC48E47FD60567D2F601DD32 /* Pods_OrbaOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrbaOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27C2E0A588ED59E6974F36E /* Pods-OrbaOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrbaOne.release.xcconfig"; path = "Target Support Files/Pods-OrbaOne/Pods-OrbaOne.release.xcconfig"; sourceTree = "<group>"; };
 		F4FF95D5245B92E700C19C63 /* OrbaOne-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OrbaOne-Bridging-Header.h"; sourceTree = "<group>"; };
 		F4FF95D6245B92E800C19C63 /* OrbaOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbaOne.swift; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C19AAB7B9849F576B9E4CF81 /* Pods_OrbaOne.framework in Frameworks */,
+				55668BB03BDDE4CA96275498 /* Pods_OrbaOne.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,7 +77,7 @@
 		F1BA5752871535DCCA6987F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CC48E47FD60567D2F601DD32 /* Pods_OrbaOne.framework */,
+				90548326474DC37E05A373FF /* Pods_OrbaOne.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -282,6 +282,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "OrbaOne-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -301,6 +302,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "OrbaOne-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

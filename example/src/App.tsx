@@ -25,7 +25,7 @@ export default class App extends Component<{}, AppState> {
         this.setState({ result: init.message });
       }
     } catch (error) {
-      this.setState({ result: 'Error: ' + error.message });
+      this.setState({ result: 'Error: ' + error });
     }
 
     OrbaOne.onCompleteVerification((event: any) => {
@@ -48,7 +48,7 @@ export default class App extends Component<{}, AppState> {
         this.setState({ result: res.message });
       }
     } catch (error) {
-      this.setState({ result: 'Error: ' + error.message });
+      this.setState({ result: 'Error: ' + error });
     }
   };
 

@@ -4,12 +4,13 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 platform :ios, '13.0'
 
 target 'OrbaOneExample' do
+  use_frameworks!
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
 
   pod 'react-native-orba-one', :path => '../..'
-
+  pod 'OrbaOneSdk', :path => '~/Documents/Projects/orbaonesdk/orbaone-ios'
   # Enables Flipper.
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and

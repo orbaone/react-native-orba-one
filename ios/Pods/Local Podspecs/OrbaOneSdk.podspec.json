@@ -1,6 +1,6 @@
 {
   "name": "OrbaOneSdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "summary": "The Official Orba One iOS pod for integrating document and video capture.",
   "description": "Orba One is a suite of customizable user identification tools including liveness detection, document verification, facial recognition, and more. These tools are combined to estimate the authenticity of a User's Identity shared with you.",
   "homepage": "https://github.com/luechenchris/orbaone-ios-sdk",
@@ -15,6 +15,7 @@
     "ios": "13.0"
   },
   "swift_versions": "5.0",
+  "documentation_url": "https://docs.orbaone.com/",
   "source": {
     "http": "file:/Users/luechen/Documents/Projects/orbaonesdk/orbaone-ios/build/OrbaOneSdk.zip"
   },
