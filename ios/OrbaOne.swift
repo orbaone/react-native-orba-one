@@ -62,8 +62,6 @@ class OrbaOne: RCTEventEmitter {
                 resolve(params)
                 break
             case .error(let error):
-                //                    params["error"] = true
-                //                    params["message"] = error
                 reject("E_FAIL", error.localizedDescription, error)
                 break
             }
@@ -80,7 +78,6 @@ class OrbaOne: RCTEventEmitter {
                 guard let presentedView = RCTPresentedViewController() else {
                     return
                 }
-                print("GOT THE VIEW - THANK YOU JESUS!!")
                 try self.sdk.startVerification(origin: presentedView, style: presentationStyle)
             } catch let error {
                 reject("E_FLOW", error.localizedDescription, error)
