@@ -34,7 +34,11 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "capture",
+    "identity",
+    "verification",
+    "sdk"
   ],
   "repository": "https://github.com/luechenchris/react-native-orba-one",
   "author": "Luechen Christopher <luechen@orba.io> (https://orbaone.com)",

@@ -1,23 +1,20 @@
 PODS:
   - Alamofire (5.4.2)
-  - OrbaOneSdk (0.0.2):
+  - OrbaOneSdk (0.0.1):
     - Alamofire (~> 5.4)
 
 DEPENDENCIES:
-  - OrbaOneSdk (from `~/Documents/Projects/orbaonesdk/orbaone-ios`)
+  - OrbaOneSdk (= 0.0.1)
 
 SPEC REPOS:
   trunk:
     - Alamofire
-
-EXTERNAL SOURCES:
-  OrbaOneSdk:
-    :path: "~/Documents/Projects/orbaonesdk/orbaone-ios"
+    - OrbaOneSdk
 
 SPEC CHECKSUMS:
   Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
-  OrbaOneSdk: 60725079801235ab0d6a40ca891cf6da82ab7f10
+  OrbaOneSdk: 64d4c0a3790632c9c89d9d72b8827c87fc1fb586
 
-PODFILE CHECKSUM: a364d72cfbf543fe589e40f8f26cd1912787464e
+PODFILE CHECKSUM: aed1d1c34df3ada6f574da5f6b0d94ffd9581b8c
 
 COCOAPODS: 1.10.1
