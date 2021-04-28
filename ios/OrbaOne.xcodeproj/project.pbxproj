@@ -269,6 +269,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 86152B7E02C3D1B9ABA6F88B /* Pods-OrbaOne.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -290,6 +291,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E27C2E0A588ED59E6974F36E /* Pods-OrbaOne.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,

@@ -1,2 +1,0 @@
-include ':orba-one-capture-sdk-core'
-project(':orba-one-capture-sdk-core').projectDir = new File('/Users/luechen/Documents/Projects/orbaonesdk/AndroidSdk/orba-one-capture-sdk-core')

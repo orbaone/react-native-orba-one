@@ -6,6 +6,6 @@ target 'OrbaOne' do
   use_frameworks!
 
   # Pods for OrbaOne
-  # pod 'OrbaOneSdk', :path => '~/Documents/Projects/orbaonesdk/orbaone-ios'
-  pod 'OrbaOneSdk', '0.0.1'
+  # pod 'OrbaOneSdk', :path => '~/Documents/Projects/orbaonesdk/orbaone-ios/OrbaOneSdk'
+  pod 'OrbaOneSdk', '~> 0.1.0'
 end

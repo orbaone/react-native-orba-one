@@ -50,12 +50,12 @@ repositories {
     }
     google()
     jcenter()
+    mavenCentral()
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    // implementation 'com.orbaone:orba-one-sdk:1.0.0'
-     implementation project(':orba-one-capture-sdk-core')
+    implementation 'com.orbaone:orba-one-sdk:1.0.0'
 }

@@ -68,7 +68,8 @@ public class OrbaOneModule extends ReactContextBaseJavaModule {
         }
       }
       if (!flowList.isEmpty()) {
-        Step[] flowStep = (Step[]) flowList.toArray();
+        Step[] flowStep = new Step[flowList.size()];
+        flowStep = flowList.toArray(flowStep);
         oneSdk = new OrbaOne.Builder().setApiKey(pubKey).setApplicantId(applicantId).setFlow(flowStep).create();
       } else {
         oneSdk = new OrbaOne.Builder().setApiKey(pubKey).setApplicantId(applicantId).create();
