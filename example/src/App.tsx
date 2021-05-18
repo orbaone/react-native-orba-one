@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { OrbaOne, OrbaOneFlowStep } from 'react-native-orba-one';
+import { OrbaOne, OrbaOneConfig, OrbaOneDocuments, OrbaOneFlowStep } from 'react-native-orba-one';
 
 interface AppState {
   result: string;
@@ -16,11 +16,12 @@ export default class App extends Component<{}, AppState> {
 
   componentDidMount = async () => {
     try {
-      const init = await OrbaOne.init('ace3ae4256f94374ad0f41b9418bf092', 'GUEST', [
+      const config = OrbaOneConfig.setFlowSteps([
         OrbaOneFlowStep.intro,
         OrbaOneFlowStep.identification,
         OrbaOneFlowStep.face,
-      ]);
+      ]).setExcludeDocument([OrbaOneDocuments.driverslicense, OrbaOneDocuments.passport]).setExcludeCountry(['JM']).build();
+      const init = await OrbaOne.init('PUBLISHABLE-KEY', 'GUEST', config);
       if (init.success) {
         this.setState({ result: init.message });
       }

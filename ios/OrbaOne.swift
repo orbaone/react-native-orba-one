@@ -21,9 +21,9 @@ class OrbaOne: RCTEventEmitter {
                     case "FACE":
                         flowList.append(.FACESCAN)
                         break
-//                    case "COMPLETE":
-//                        flowList.append(.COMPLETE)
-//                        break
+                    case "COMPLETE":
+                        flowList.append(.COMPLETE)
+                        break
                     default:
                         break
                     }

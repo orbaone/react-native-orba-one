@@ -17,5 +17,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   
   s.dependency "React-Core"
-  s.dependency "OrbaOneSdk", "~> 0.0.6"
+  s.dependency "OrbaOneSdk", "~> 0.0.7"
 end
