@@ -20,7 +20,7 @@ export default class App extends Component<{}, AppState> {
         OrbaOneFlowStep.intro,
         OrbaOneFlowStep.identification,
         OrbaOneFlowStep.face,
-      ]).setExcludeDocument([OrbaOneDocuments.driverslicense, OrbaOneDocuments.passport]).setExcludeCountry(['JM']).build();
+      ]).setExcludeDocument([OrbaOneDocuments.passport]).setExcludeCountry(['JM']).build();
       const init = await OrbaOne.init('PUBLISHABLE-KEY', 'GUEST', config);
       if (init.success) {
         this.setState({ result: init.message });

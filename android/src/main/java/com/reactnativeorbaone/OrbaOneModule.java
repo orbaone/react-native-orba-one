@@ -17,6 +17,9 @@ import com.facebook.react.module.annotations.ReactModule;
 
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.orbaone.orba_one_capture_sdk_core.OrbaOne;
+import com.orbaone.orba_one_capture_sdk_core.documentCapture.CountryCode;
+import com.orbaone.orba_one_capture_sdk_core.documentCapture.DocumentCaptureStep;
+import com.orbaone.orba_one_capture_sdk_core.helpers.DocumentTypes;
 import com.orbaone.orba_one_capture_sdk_core.helpers.Step;
 
 import java.util.ArrayList;
@@ -48,33 +51,16 @@ public class OrbaOneModule extends ReactContextBaseJavaModule {
   public void initialize(String pubKey, String applicantId, ReadableArray steps, ReadableArray excludeDocuments, ReadableArray excludeCountries, ReadableMap theme, Promise promise ) {
     WritableMap params = Arguments.createMap();
     try {
-      ArrayList<Step> flowList = new ArrayList<>();
-      ArrayList stepList = steps.toArrayList();
-      if (!stepList.isEmpty()) {
-        for (Object step : stepList) {
-          switch (step.toString()) {
-            case "INTRO":
-              flowList.add(Step.INTRO);
-              break;
-            case "ID":
-              flowList.add(Step.ID);
-              break;
-            case "FACE":
-              flowList.add(Step.FACESCAN);
-              break;
-            case "COMPLETE":
-              flowList.add(Step.COMPLETE);
-              break;
-          }
-        }
+      OrbaOne.Builder config = new OrbaOne.Builder().setApiKey(pubKey).setApplicantId(applicantId);
+      Step[] flowStep = getFlowSteps(steps);
+      if (flowStep.length > 0) {
+        config.setFlow(flowStep);
       }
-      if (!flowList.isEmpty()) {
-        Step[] flowStep = new Step[flowList.size()];
-        flowStep = flowList.toArray(flowStep);
-        oneSdk = new OrbaOne.Builder().setApiKey(pubKey).setApplicantId(applicantId).setFlow(flowStep).create();
-      } else {
-        oneSdk = new OrbaOne.Builder().setApiKey(pubKey).setApplicantId(applicantId).create();
+      DocumentCaptureStep captureConfig = getCaptureStep(excludeDocuments, excludeCountries);
+      if (captureConfig != null) {
+        config.setDocumentCapture(captureConfig);
       }
+      oneSdk = config.create();
       params.putBoolean("success", true);
       params.putString("message", "The Orba One verification api is ready.");
       promise.resolve(params);
@@ -130,4 +116,95 @@ public class OrbaOneModule extends ReactContextBaseJavaModule {
       promise.reject(e, params);
     }
   }
+
+  private Step[] getFlowSteps(ReadableArray steps) {
+    ArrayList<Step> flowList = new ArrayList<>();
+    ArrayList stepList = steps.toArrayList();
+    if (!stepList.isEmpty()) {
+      for (Object step : stepList) {
+        switch (step.toString()) {
+          case "INTRO":
+            flowList.add(Step.INTRO);
+            break;
+          case "ID":
+            flowList.add(Step.ID);
+            break;
+          case "FACE":
+            flowList.add(Step.FACESCAN);
+            break;
+          case "COMPLETE":
+            flowList.add(Step.COMPLETE);
+            break;
+        }
+      }
+    }
+    if (!flowList.isEmpty()) {
+      Step[] flowStep = new Step[flowList.size()];
+      flowStep = flowList.toArray(flowStep);
+      return flowStep;
+    } else {
+      return null;
+    }
+  }
+
+  private DocumentCaptureStep getCaptureStep(ReadableArray documents, ReadableArray countries) {
+    DocumentTypes[] excludedDocuments = getDocuments(documents);
+    CountryCode[] excludedCountries = getCountries(countries);
+    DocumentCaptureStep.Builder config = new DocumentCaptureStep.Builder();
+    if (excludedDocuments != null || excludedCountries != null) {
+      if (excludedDocuments != null) {
+        config.excludeDocument(excludedDocuments);
+      }
+      if (excludedCountries != null) {
+        config.excludeCountry(excludedCountries);
+      }
+      return config.create();
+    }
+    return null;
+  }
+
+  private DocumentTypes[] getDocuments(ReadableArray documents) {
+    ArrayList<DocumentTypes> documentList = new ArrayList<>();
+    ArrayList list = documents.toArrayList();
+    if (!list.isEmpty()) {
+      for (Object document : list) {
+        try {
+          DocumentTypes id = DocumentTypes.valueOf(document.toString());
+          documentList.add(id);
+        } catch (IllegalArgumentException e) {
+          // not a valid country code
+        }
+      }
+    }
+    if (!documentList.isEmpty()) {
+      DocumentTypes[] excludedDocuments = new DocumentTypes[documentList.size()];
+      excludedDocuments = documentList.toArray(excludedDocuments);
+      return excludedDocuments;
+    } else {
+      return null;
+    }
+  }
+
+  private CountryCode[] getCountries(ReadableArray countries) {
+    ArrayList<CountryCode> countryList = new ArrayList<>();
+    ArrayList list = countries.toArrayList();
+    if (!list.isEmpty()) {
+      for (Object country : list) {
+        try {
+          CountryCode code = CountryCode.valueOf(country.toString());
+          countryList.add(code);
+        } catch (IllegalArgumentException e) {
+          // not a valid country code
+        }
+      }
+    }
+    if (!countryList.isEmpty()) {
+      CountryCode[] excludedCountries = new CountryCode[countryList.size()];
+      excludedCountries = countryList.toArray(excludedCountries);
+      return excludedCountries;
+    } else {
+      return null;
+    }
+  }
+
 }
