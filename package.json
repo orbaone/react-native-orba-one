@@ -1,6 +1,6 @@
 {
   "name": "@orbaone/react-native-orba-one",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Official React Native wrapper for Orba One SDK.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
