@@ -1,17 +1,17 @@
-# react-native-orba-one
+# @orbaone/react-native-orba-one
 
 Official React-Native wrapper for Orba One SDK.
 
 ## Installation
 
 ```sh
-npm install react-native-orba-one
+npm install @orbaone/react-native-orba-one
 ```
 
 ## Usage
 
 ```js
-import { OrbaOne, OrbaOneConfig, OrbaOneFlowStep } from 'react-native-orba-one';
+import { OrbaOne, OrbaOneConfig, OrbaOneFlowStep } from '@orbaone/react-native-orba-one';
 
 // ...
 const config = OrbaOneConfig.setFlowSteps([
@@ -35,7 +35,7 @@ if(res.success) {
 
 ## Handling Verifications
 ```js
-import { OrbaOne } from 'react-native-orba-one';
+import { OrbaOne } from '@orbaone/react-native-orba-one';
 
 // ...
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { OrbaOne, OrbaOneConfig, OrbaOneDocuments, OrbaOneFlowStep } from 'react-native-orba-one';
+import { OrbaOne, OrbaOneConfig, OrbaOneDocuments, OrbaOneFlowStep } from '@orbaone/react-native-orba-one';
 
 interface AppState {
   result: string;
