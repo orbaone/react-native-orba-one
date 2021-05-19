@@ -11,15 +11,17 @@ npm install react-native-orba-one
 ## Usage
 
 ```js
-import { OrbaOne, OrbaOneFlowStep } from 'react-native-orba-one';
+import { OrbaOne, OrbaOneConfig, OrbaOneFlowStep } from 'react-native-orba-one';
 
 // ...
+const config = OrbaOneConfig.setFlowSteps([
+  OrbaOneFlowStep.intro,
+  OrbaOneFlowStep.identification,
+  OrbaOneFlowStep.face,
+  OrbaOneFlowStep.complete
+]).build();
 
-const init = await OrbaOne.init('publishable-api-key', 'applicant-id', [
-    OrbaOneFlowStep.intro,
-    OrbaOneFlowStep.identification,
-    OrbaOneFlowStep.face,
-  ]);
+const init = await OrbaOne.init('publishable-api-key', 'applicant-id', config);
 if(init.success) {
   console.log(init.message)  
 } 
@@ -33,7 +35,7 @@ if(res.success) {
 
 ## Handling Verifications
 ```js
-import { OrbaOne, OrbaOneFlowStep } from 'react-native-orba-one';
+import { OrbaOne } from 'react-native-orba-one';
 
 // ...
 
