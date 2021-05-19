@@ -40,13 +40,13 @@
     "verification",
     "sdk"
   ],
-  "repository": "https://github.com/luechenchris/react-native-orba-one",
+  "repository": "https://github.com/orbaone/react-native-orba-one",
   "author": "Luechen Christopher <luechen@orba.io> (https://orbaone.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/luechenchris/react-native-orba-one/issues"
+    "url": "https://github.com/orbaone/react-native-orba-one/issues"
   },
-  "homepage": "https://github.com/luechenchris/react-native-orba-one#readme",
+  "homepage": "https://github.com/orbaone/react-native-orba-one#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
