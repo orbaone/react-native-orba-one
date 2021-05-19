@@ -150,8 +150,8 @@ public class OrbaOneModule extends ReactContextBaseJavaModule {
   private DocumentCaptureStep getCaptureStep(ReadableArray documents, ReadableArray countries) {
     DocumentTypes[] excludedDocuments = getDocuments(documents);
     CountryCode[] excludedCountries = getCountries(countries);
-    DocumentCaptureStep.Builder config = new DocumentCaptureStep.Builder();
     if (excludedDocuments != null || excludedCountries != null) {
+      DocumentCaptureStep.Builder config = new DocumentCaptureStep.Builder();
       if (excludedDocuments != null) {
         config.excludeDocument(excludedDocuments);
       }

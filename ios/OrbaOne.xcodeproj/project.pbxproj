@@ -55,15 +55,7 @@
 				B3E7B5891CC2AC0600A0062D /* OrbaOne.m */,
 				F4FF95D5245B92E700C19C63 /* OrbaOne-Bridging-Header.h */,
 				134814211AA4EA7D00B7C361 /* Products */,
-				E2AC5E6EFA804DF33EF8ECFD /* Pods */,
 			);
-			sourceTree = "<group>";
-		};
-		E2AC5E6EFA804DF33EF8ECFD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

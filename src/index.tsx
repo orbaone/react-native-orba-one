@@ -15,17 +15,29 @@ interface OrbaOneConfig {
 }
 
 interface Theme {
-  /// Defines the primary accent color for bullet points and highlights.
-  colorPrimary?: string;
-  /// Defines the text color of titles.
-  colorTextPrimary?: string;
-  /// Defines the background color of primary buttons and the text color of secondary buttons
-  colorButtonPrimary?: string;
-  /// Defines the text color of primary buttons
-  colorButtonPrimaryText?: string;
-  /// Defines the background color of primary buttons when pressed
-  colorButtonPrimaryPressed?: string;
-  /// Defines the dark mode allowed setting for the SDK
+  // /**
+  //  * Defines the primary accent color for bullet points and highlights.
+  //  */
+  // colorPrimary?: string;
+  // /**
+  //  * Defines the text color of titles.
+  // */
+  // colorTextPrimary?: string;
+  // /**
+  //  * Defines the background color of primary buttons and the text color of secondary buttons
+  //  */
+  // colorButtonPrimary?: string;
+  // /**
+  //  * Defines the text color of primary buttons
+  //  */
+  // colorButtonPrimaryText?: string;
+  // /**
+  //  * Defines the background color of primary buttons when pressed
+  //  */
+  // colorButtonPrimaryPressed?: string;
+  /**
+   * Defines the dark mode allowed setting for the SDK
+   */
   enableDarkMode?: Boolean
 }
 
@@ -76,6 +88,9 @@ class OrbaOneModule {
     this.emitter.addListener('onCancelOrbaOneVerification', callback);
   }
 
+  /**
+  * Function 'removeListeners' unregisters the 'onCompleteVerification' and 'onCancelVerification' event listeners if they were defined.
+  */
   public removeListeners() {
     this.emitter.removeListener('onCompleteOrbaOneVerification', () => { });
     this.emitter.removeListener('onCancelOrbaOneVerification', () => { });
@@ -95,6 +110,10 @@ class ConfigBuilder {
     this.appearance = {};
   }
 
+  /**
+  * Function 'setFlowSteps' takes the following parameters:
+  * 1. OrbaOneFlowStep[] steps: Defines the order and inclusivity of steps in the verification flow.
+  */
   public setFlowSteps(steps: Array<OrbaOneFlowStep>) {
     let a = null;
     if (steps && steps.length > 0) {
@@ -111,17 +130,27 @@ class ConfigBuilder {
     return this;
   }
 
+  /**
+  * Function 'setExcludeDocument' takes the following parameters:
+  * 1. OrbaOneDocuments[] documents: An array of documents that you would like to exclude from the Document Capture step.
+  */
   public setExcludeDocument(documents: Array<OrbaOneDocuments>): ConfigBuilder {
     this.excludedDocuments = documents;
     return this;
   }
 
+  /**
+  * Function 'setExcludeCountry' takes the following parameters:
+  * 1. String[] countries: An array of alpha-2 country codes that you would like to exclude from the Document Capture step. e.g. enter 'JM' to exclude Jamaica
+  */
   public setExcludeCountry(countries: Array<string>): ConfigBuilder {
     this.excludedCountries = countries;
     return this;
   }
 
-  /* iOS only - for android, set appearance in colors.xml file*/
+  /**
+  * iOS only - for android, set appearance in colors.xml file
+  */
   public setAppearance(theme: Theme): ConfigBuilder {
     this.appearance = theme;
     return this;

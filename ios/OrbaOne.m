@@ -7,6 +7,9 @@
 RCT_EXTERN_METHOD(initialize:(NSString*)pubKey
                   appId:(NSString*)applicantId
                   flow:(NSArray)steps
+                  excludeDocuments:(NSArray)documents
+                  excludeCountries:(NSArray)countries
+                  appearance:(NSDictionary)theme
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject
                   )
