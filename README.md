@@ -7,6 +7,21 @@ Official React-Native wrapper for Orba One SDK.
 ```sh
 npm install @orbaone/react-native-orba-one
 ```
+- ## iOS
+  The Orba One SDK requires that the following permissions be added to the application's `info.plist` file:
+
+  ```
+  <key>NSCameraUsageDescription</key>
+  <string>Required for Facial and Document capture.</string>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Required for Audio capture.</string>
+  ```
+
+  - Ensure that `use_frameworks!` is added to your app target in your Podfile.
+  - Run `pod install` to retrieve the sdk.
+
+- ## Android
+  No additional setup is necessary.
 
 ## Usage
 
