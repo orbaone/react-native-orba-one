@@ -1,6 +1,6 @@
 # @orbaone/react-native-orba-one
 
-Official React-Native wrapper for Orba One SDK.
+Official React-Native wrapper for the Orba One SDK.
 
 ## Installation
 

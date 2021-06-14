@@ -117,7 +117,7 @@ class OrbaOne: RCTEventEmitter {
         if !(exDocuments?.isEmpty ?? true) || !(exCountries?.isEmpty ?? true) {
             var captureConfig = DocumentCaptureConfig()
             if let documents = exDocuments {
-                captureConfig = captureConfig.excludeDocumennt(documents)
+                captureConfig = captureConfig.excludeDocument(documents)
             }
             if let countries = exCountries {
                 captureConfig = captureConfig.excludeCountry(countries)
