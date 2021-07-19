@@ -32,7 +32,7 @@ class OrbaOne: RCTEventEmitter {
             params["message"] = "The Orba One verification api is ready."
             resolve(params)
         } catch let error {
-            reject("E_FLOW", error.localizedDescription, error)
+            reject("E_FLOW", "\(error)", error)
         }
     }
     
@@ -59,7 +59,7 @@ class OrbaOne: RCTEventEmitter {
                 resolve(params)
                 break
             case .error(let error):
-                reject("E_FAIL", error.localizedDescription, error)
+                reject("E_FAIL", "\(error)", error)
                 break
             }
         })
@@ -77,7 +77,7 @@ class OrbaOne: RCTEventEmitter {
                 }
                 try self.sdk.startVerification(origin: presentedView, style: presentationStyle)
             } catch let error {
-                reject("E_FLOW", error.localizedDescription, error)
+                reject("E_FLOW", "\(error)", error)
             }
         }
         
