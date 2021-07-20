@@ -159,12 +159,47 @@ class OrbaOne: RCTEventEmitter {
     
     func getTheme(appearance theme: [String: Any]) -> Theme? {
         if !theme.isEmpty {
-            if let darkMode = theme["enableDarkMode"] {
-               return Theme(enableDarkMode: darkMode as! Bool)
-            }
+            let darkMode = theme["enableDarkMode"] ?? false 
+            let primary = theme["colorPrimary"] ?? "#3D71E3" 
+            let textPrimary = theme["colorTextPrimary"] ?? "#000000" 
+            let buttonPrimary = theme["colorButtonPrimary"] ?? "#3D71E3" 
+            let buttonTextPrimary = theme["colorButtonPrimaryText"] ?? "#FFFFFF" 
+            let buttonPrimaryPressed = theme["colorButtonPrimaryPressed"] ?? "#5E6671" 
+            return Theme(
+                colorPrimary: hexStringToUIColor(hex: primary as! String),
+                colorTextPrimary: hexStringToUIColor(hex: textPrimary as! String),
+                colorButtonPrimary: hexStringToUIColor(hex: buttonPrimary as! String),
+                colorButtonPrimaryText: hexStringToUIColor(hex: buttonTextPrimary as! String),
+                colorButtonPrimaryPressed: hexStringToUIColor(hex: buttonPrimaryPressed as! String),
+                enableDarkMode: darkMode as! Bool
+            )
         }
         return nil
     }
+    
+    // https://stackoverflow.com/a/27203691/7405943
+    func hexStringToUIColor (hex: String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+
+        if ((cString.count) != 6) {
+            return UIColor.gray
+        }
+
+        var rgbValue:UInt64 = 0
+        Scanner(string: cString).scanHexInt64(&rgbValue)
+
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+    
     
     override func supportedEvents() -> [String]! {
         return ["onCompleteOrbaOneVerification","onCancelOrbaOneVerification"]

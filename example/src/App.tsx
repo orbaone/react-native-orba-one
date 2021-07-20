@@ -21,7 +21,7 @@ export default class App extends Component<{}, AppState> {
         OrbaOneFlowStep.identification,
         OrbaOneFlowStep.face,
         OrbaOneFlowStep.complete
-      ]).setAppearance({enableDarkMode: true}).setExcludeDocument([OrbaOneDocuments.passport]).setExcludeCountry(['BR']).build();
+      ]).setAppearance({ colorPrimary: '#34A0E3', colorButtonPrimary: '#34A0E3', colorTextPrimary: '#34A0E3', colorButtonPrimaryPressed: '#2D75FA', enableDarkMode: true }).setExcludeDocument([OrbaOneDocuments.passport]).setExcludeCountry(['BR']).build();
       const init = await OrbaOne.init('PUBLISHABLE-KEY', 'GUEST', config);
       if (init.success) {
         this.setState({ result: init.message });

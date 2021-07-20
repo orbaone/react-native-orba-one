@@ -15,26 +15,26 @@ interface OrbaOneConfig {
 }
 
 interface Theme {
-  // /**
-  //  * Defines the primary accent color for bullet points and highlights.
-  //  */
-  // colorPrimary?: string;
-  // /**
-  //  * Defines the text color of titles.
-  // */
-  // colorTextPrimary?: string;
-  // /**
-  //  * Defines the background color of primary buttons and the text color of secondary buttons
-  //  */
-  // colorButtonPrimary?: string;
-  // /**
-  //  * Defines the text color of primary buttons
-  //  */
-  // colorButtonPrimaryText?: string;
-  // /**
-  //  * Defines the background color of primary buttons when pressed
-  //  */
-  // colorButtonPrimaryPressed?: string;
+  /**
+   * Defines the primary accent color for bullet points and highlights.
+   */
+  colorPrimary?: string;
+  /**
+   * Defines the text color of titles.
+  */
+  colorTextPrimary?: string;
+  /**
+   * Defines the background color of primary buttons and the text color of secondary buttons
+   */
+  colorButtonPrimary?: string;
+  /**
+   * Defines the text color of primary buttons
+   */
+  colorButtonPrimaryText?: string;
+  /**
+   * Defines the background color of primary buttons when pressed
+   */
+  colorButtonPrimaryPressed?: string;
   /**
    * Defines the dark mode allowed setting for the SDK
    */
