@@ -59,8 +59,25 @@ class OrbaOne: RCTEventEmitter {
                 resolve(params)
                 break
             case .error(let error):
-                reject("E_FAIL", "\(error)", error)
-                break
+                switch error {
+                    case .exception(withMessage: let message):
+                       reject("E_FAIL", "\(message)", error)
+                    case .API_KEY_MISSING:
+                        reject("E_FAIL", "Publishable key missing.", error)
+                    case .API_KEY_INVALID:
+                        reject("E_FAIL", "Publishable key is invalid.", error)
+                    case .USER_INVALID:
+                        reject("E_FAIL", "Applicant id is invalid.", error)
+                    case .USER_CANCELLED:
+                        reject("E_FAIL", "Applicant cancelled verification.", error)
+                    case .API_NOT_AVAILABLE:
+                        reject("E_FAIL", "Orba One servers are unreachable.", error)
+                    case .UPLOAD_INVALID:
+                        reject("E_FAIL", "Upload data is corrupted or missing meta data.", error)
+                    @unknown default:
+                        reject("E_FAIL", "An unknown error occured.", error)
+                    }
+                break;
             }
         })
         
