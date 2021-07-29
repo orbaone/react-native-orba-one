@@ -20,7 +20,7 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - OrbaOneSdk (0.0.10):
+  - OrbaOneSdk (0.0.11):
     - Alamofire (~> 5.4)
   - RCTRequired (0.63.4)
   - RCTTypeSafety (0.63.4):
@@ -188,8 +188,8 @@ PODS:
     - React-cxxreact (= 0.63.4)
     - React-jsi (= 0.63.4)
   - React-jsinspector (0.63.4)
-  - react-native-orba-one (0.1.0):
-    - OrbaOneSdk (= 0.0.10)
+  - react-native-orba-one (0.1.1):
+    - OrbaOneSdk (= 0.0.11)
     - React-Core
   - React-RCTActionSheet (0.63.4):
     - React-Core/RCTActionSheetHeaders (= 0.63.4)
@@ -354,7 +354,7 @@ SPEC CHECKSUMS:
   FBReactNativeSpec: f2c97f2529dd79c083355182cc158c9f98f4bd6e
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
-  OrbaOneSdk: 8b0545d595c4675066cf950bfe5131be9d532536
+  OrbaOneSdk: 477d684d0270eabded61452401092bbb9df08c3e
   RCTRequired: 082f10cd3f905d6c124597fd1c14f6f2655ff65e
   RCTTypeSafety: 8c9c544ecbf20337d069e4ae7fd9a377aadf504b
   React: b0a957a2c44da4113b0c4c9853d8387f8e64e615
@@ -365,7 +365,7 @@ SPEC CHECKSUMS:
   React-jsi: a0418934cf48f25b485631deb27c64dc40fb4c31
   React-jsiexecutor: 93bd528844ad21dc07aab1c67cb10abae6df6949
   React-jsinspector: 58aef7155bc9a9683f5b60b35eccea8722a4f53a
-  react-native-orba-one: 29d25c6aeefd47ab60d1eb095f73128f4f695b26
+  react-native-orba-one: 7bc26aa96a2f1f3c935118ef8b9111f0e29db041
   React-RCTActionSheet: 89a0ca9f4a06c1f93c26067af074ccdce0f40336
   React-RCTAnimation: 1bde3ecc0c104c55df246eda516e0deb03c4e49b
   React-RCTBlob: a97d378b527740cc667e03ebfa183a75231ab0f0
