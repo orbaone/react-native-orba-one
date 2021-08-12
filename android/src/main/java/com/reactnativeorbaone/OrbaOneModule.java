@@ -49,7 +49,6 @@ public class OrbaOneModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void initialize(String pubKey, String applicantId, ReadableArray steps, ReadableArray excludeDocuments, ReadableArray excludeCountries, ReadableMap theme, Promise promise ) {
-    WritableMap params = Arguments.createMap();
     try {
       OrbaOne.Builder config = new OrbaOne.Builder().setApiKey(pubKey).setApplicantId(applicantId);
       Step[] flowStep = getFlowSteps(steps);
@@ -61,10 +60,12 @@ public class OrbaOneModule extends ReactContextBaseJavaModule {
         config.setDocumentCapture(captureConfig);
       }
       oneSdk = config.create();
+      WritableMap params = Arguments.createMap();
       params.putBoolean("success", true);
       params.putString("message", "The Orba One verification api is ready.");
       promise.resolve(params);
     } catch (Exception e){
+      WritableMap params = Arguments.createMap();
       params.putBoolean("error", true);
       params.putString("message", e.getLocalizedMessage());
       promise.reject(e, params);
@@ -73,12 +74,12 @@ public class OrbaOneModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void startVerification(Promise promise) {
-    WritableMap params = Arguments.createMap();
     try {
       oneSdk.startVerification((AppCompatActivity) getCurrentActivity());
       oneSdk.onStartVerification(new OrbaOne.Response() {
         @Override
         public void onSuccess() {
+          WritableMap params = Arguments.createMap();
           params.putBoolean("success", true);
           params.putString("message", "Orba One Verification started.");
           promise.resolve(params);
@@ -86,6 +87,7 @@ public class OrbaOneModule extends ReactContextBaseJavaModule {
 
         @Override
         public void onFailure(String message) {
+          WritableMap params = Arguments.createMap();
           params.putBoolean("error", true);
           params.putString("message", message);
           promise.reject(new IllegalStateException(message), params);
@@ -111,6 +113,7 @@ public class OrbaOneModule extends ReactContextBaseJavaModule {
         }
       });
     } catch (Exception e) {
+      WritableMap params = Arguments.createMap();
       params.putBoolean("error", true);
       params.putString("message", e.getLocalizedMessage());
       promise.reject(e, params);
