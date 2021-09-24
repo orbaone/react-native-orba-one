@@ -13,9 +13,9 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => "13.0" }
   s.source       = { :git => "https://github.com/orbaone/react-native-orba-one.git" }
 
-  s.source_files = "ios/**/*.{h,m,mm,swift}"
+  s.source_files = "ios/**/*.{h,m,swift}"
   s.requires_arc = true
   
   s.dependency "React-Core"
-  s.dependency "OrbaOneSdk", "0.0.11"
+  s.dependency "OrbaOneSdk", "0.0.12"
 end
