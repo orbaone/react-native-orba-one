@@ -25,7 +25,6 @@ android {
         targetSdkVersion safeExtGet('OrbaOne_targetSdkVersion', 29)
         versionCode 1
         versionName "1.0"
-
     }
 
     buildTypes {
@@ -57,5 +56,5 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation 'com.orbaone:orba-one-sdk:1.0.5'
+    implementation 'com.orbaone:orba-one-sdk:1.0.7'
 }

@@ -32,18 +32,33 @@ No additional setup is necessary.
 ## Usage
 
 ```js
-import { OrbaOne, OrbaOneConfig, OrbaOneFlowStep } from '@orbaone/react-native-orba-one';
+import { OrbaOne, OrbaOneConfig, OrbaOneFlowStep, OrbaOneDocuments } from '@orbaone/react-native-orba-one';
 ```
 
-## Starting the Verification Flow with Customizations
+## Starting the Verification Flow 
+```js
+// Initializing the Flow with default settings
+const init = await OrbaOne.init('publishable-api-key', 'applicant-id');
+if(init.success) {
+  console.log(init.message)  
+} 
+
+// Starting the Flow
+const res = await OrbaOne.startVerification();
+if(res.success) {
+  console.log(res.message)  
+} 
 ```
-// Customizing the flow
+## Adding Customizations
+```js
+// Customizing the Flow
 const verificationConfig = OrbaOneConfig.setFlowSteps([
-  OrbaOneFlowStep.intro,
-  OrbaOneFlowStep.identification,
-  OrbaOneFlowStep.face,
-  OrbaOneFlowStep.complete
+  OrbaOneFlowStep.intro, // Welcome step - gives your user a short overview of the flow. [Optional, Default].
+  OrbaOneFlowStep.identification, // Photo ID step - captures the user's identification document. [Default].
+  OrbaOneFlowStep.face, // Selfie Video step - captures a video of the user for liveness detection. [Default].
+  OrbaOneFlowStep.complete // Final Step - informs the user that the verification process is completed. [Optional].
 ])
+// Customizing the Theme
 .setAppearance({
   colorPrimary: '#000000' <Hex String>,
   colorButtonPrimary: '#000000' <Hex String>,
@@ -51,21 +66,21 @@ const verificationConfig = OrbaOneConfig.setFlowSteps([
   colorButtonPrimaryPressed: '#000000' <Hex String>,
   enableDarkMode: true <Bool>
 })
+// Customizing the Document Capture Step
+.setExcludeDocument([
+  OrbaOneDocuments.passport, // this will remove the Passport option
+  OrbaOneDocuments.driverslicense, // this will remove the Driver's License option
+  OrbaOneDocuments.nationalid // this will remove the National ID option
+])
+// Customizing the Country List
+.setExcludeCountry([
+  'JM', // this will remove Jamaica from the list of available countries
+  'US' // this will remove the United States from the list of available countries
+])
 .build();
 
-// Initializing the flow
 const init = await OrbaOne.init('publishable-api-key', 'applicant-id', verificationConfig);
-if(init.success) {
-  console.log(init.message)  
-} 
-
-// Starting the flow
-const res = await OrbaOne.startVerification();
-if(res.success) {
-  console.log(res.message)  
-} 
 ```
-
 ## Handling Verifications
 
 ```js
