@@ -57,6 +57,8 @@ export enum OrbaOneDocuments {
 class OrbaOneModule {
   private readonly module: any;
   private readonly emitter: EventEmitter;
+  private onCompleteListener: any;
+  private onCancelListener: any;
 
   constructor() {
     this.module = NativeModules.OrbaOne;
@@ -72,7 +74,7 @@ class OrbaOneModule {
   * 
   * Returns a Promise
   */
-  public init(apiKey: string, applicantId: string, config: OrbaOneConfig = {documents: [], countries: [], theme: {}, flow: []}): Promise<Result> {
+  public init(apiKey: string, applicantId: string, config: OrbaOneConfig = { documents: [], countries: [], theme: {}, flow: [] }): Promise<Result> {
     return this.module.initialize(apiKey, applicantId, config.flow, config.documents, config.countries, config.theme);
   }
 
@@ -81,19 +83,23 @@ class OrbaOneModule {
   }
 
   public onCompleteVerification(callback: (...args: any[]) => any) {
-    this.emitter.addListener('onCompleteOrbaOneVerification', callback);
+    this.onCompleteListener = this.emitter.addListener('onCompleteOrbaOneVerification', callback);
   }
 
   public onCancelVerification(callback: (...args: any[]) => any) {
-    this.emitter.addListener('onCancelOrbaOneVerification', callback);
+    this.onCancelListener = this.emitter.addListener('onCancelOrbaOneVerification', callback);
   }
 
   /**
   * Function 'removeListeners' unregisters the 'onCompleteVerification' and 'onCancelVerification' event listeners if they were defined.
   */
   public removeListeners() {
-    this.emitter.removeListener('onCompleteOrbaOneVerification', () => { });
-    this.emitter.removeListener('onCancelOrbaOneVerification', () => { });
+    if (this.onCompleteListener != null) {
+      this.onCompleteListener.remove();
+    }
+    if (this.onCancelListener != null) {
+      this.onCancelListener.remove();
+    }
   }
 }
 
